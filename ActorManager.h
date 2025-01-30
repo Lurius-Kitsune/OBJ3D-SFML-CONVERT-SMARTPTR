@@ -1,0 +1,71 @@
+#pragma once
+#include "Singleton.h"
+#include "Actor.h"
+
+class ActorManager : public Singleton<ActorManager>
+{
+	set<Shared<Actor>> allActors;
+	multimap<string, Shared<Actor>> actorsID;
+
+public:
+	FORCEINLINE set<Shared<Actor>> GetAllActors() const
+	{
+		return allActors;
+	}
+	FORCEINLINE void AddActor(Actor* _actor)
+	{
+		const Shared<Actor>& _actorPtr = Shared<Actor>(_actor);
+		allActors.insert(_actorPtr);
+		actorsID.insert({ _actor->GetName(), _actorPtr });
+		_actorPtr->BeginPlay();
+	}
+	FORCEINLINE void RemoveActor(Actor* _actor)
+	{
+		const Shared<Actor>& _actorPtr = Shared<Actor>(_actor);
+		allActors.erase(_actorPtr);
+
+		const string& _actorName = _actorPtr->GetName();
+		using Iterator = multimap<string, Shared<Actor>>::iterator;
+		const pair<Iterator, Iterator>& _results = actorsID.equal_range(_actorName);
+
+		for (Iterator _it = _results.first; _it != _results.second; )
+		{
+			if (_it->second == _actorPtr)
+			{
+				actorsID.erase(_it++);
+				continue;
+			}
+
+			++_it;
+		}
+
+		_actor->BeginDestroy();
+	}
+	// duck_1
+	FORCEINLINE string GetAvailableName(const string& _name, const int _index = 1)
+	{
+		// Je rajoute "_index" au nom actuel
+		const string& _fullName = _name + "_" + to_string(_index);
+
+		// Je parcours tous les Actors qui possèdent le même nom 
+		using Iterator = multimap<string, Shared<Actor>>::iterator;
+		const pair<Iterator, Iterator>& _results = actorsID.equal_range(_name);
+
+		for (Iterator _it = _results.first; _it != _results.second; ++_it)
+		{
+			// Si c'est le même
+			if (_it->second->GetName() == _fullName) continue;
+
+			// Si aucun n'a le même nom, ce sera son nom
+			return _fullName;
+		}
+
+		// Je reteste avec l'index suivant
+		return GetAvailableName(_name, _index + 1);
+	}
+
+public:
+	void BeginPlay();
+	void Tick(const float _deltaTime);
+	void BeginDestroy();
+};
