@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\Utility">
+      <UniqueIdentifier>{ff17acac-601a-432a-b94f-a5b9793dc13d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Color">
+      <UniqueIdentifier>{8168fafe-b5d0-4e53-9ad1-d347c86bb1b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Exception">
+      <UniqueIdentifier>{ef0d0d32-5dcd-49c3-8520-8e1eff8b3221}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Kismet">
+      <UniqueIdentifier>{12834c76-57d1-425a-81c8-2ebd807ac87b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Logger">
+      <UniqueIdentifier>{372a75c5-9861-4b67-a7ba-400b6a59155f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script">
+      <UniqueIdentifier>{584d0d1a-1937-43a1-9240-0a8bbb63a114}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script\Core">
+      <UniqueIdentifier>{71c16606-32e8-4296-bab5-59cafd69b23d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script\GameLoop">
+      <UniqueIdentifier>{a7233f01-ca75-4cc8-a1a4-bc4ba72eee71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script\Managers">
+      <UniqueIdentifier>{fde69892-2130-4489-a8bc-37997491aea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script\Objects">
+      <UniqueIdentifier>{a19d9337-0724-46e3-b07a-012765d70a90}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
